@@ -1,0 +1,406 @@
+{
+  "info": {
+    "_postman_id": "b0d0c530-61a7-42c8-90e8-2ff085c446ea",
+    "name": "Finance-backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "38921531"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"admin@example.com\",\r\n    \"password\":\"Joyboy@123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "create user",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Ritesh Sharma\",\r\n  \"email\": \"ritesh.viewer@example.com\",\r\n  \"password\": \"Viewer@123\"\r\n//   \"role\": \"viewer\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Ritesh Dnyanoba Gore\",\r\n    \"role\":\"viewer\",\r\n    \"status\":\"inactive\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "69d27afe510b83e46baf8bf2"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "69d0fc19671ca89499ab10b3"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get me",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Transaction",
+      "item": [
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\r\n//   \"amount\": 2500,\r\n//   \"type\": \"income\",\r\n//   \"category\": \"Salary\",\r\n//   \"date\": \"2026-04-01\",\r\n//   \"notes\": \"Monthly salary credited\"\r\n// }\r\n\r\n// {\r\n//   \"amount\": 1200,\r\n//   \"type\": \"expense\",\r\n//   \"category\": \"Rent\",\r\n//   \"date\": \"2026-04-03\",\r\n//   \"notes\": \"April rent payment\"\r\n// }\r\n\r\n// {\r\n//   \"amount\": 800,\r\n//   \"type\": \"expense\",\r\n//   \"category\": \"transport\",\r\n//   \"date\": \"2026-04-03\"\r\n// }\r\n\r\n// {\r\n//   \"amount\": 2000,\r\n//   \"type\": \"expense\",\r\n//   \"category\": \"entertainment\",\r\n//   \"date\": \"2026-04-05\",\r\n//   \"notes\": \"Movie and dinner\"\r\n// }\r\n\r\n{\r\n  \"amount\": 4500,\r\n  \"type\": \"expense\",\r\n  \"category\": \"groceries\",\r\n  \"date\": \"2026-05-02\",\r\n  \"notes\": \"Weekly grocery shopping\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/transactions/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "transactions",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/transactions/?type=expense",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "transactions",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "expense",
+                  "type": "text"
+                },
+                {
+                  "key": "category",
+                  "value": "Salary",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "startDate",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "endDate",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get single transaction",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/transactions/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "transactions",
+                ":id"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "income",
+                  "disabled": true
+                },
+                {
+                  "key": "category",
+                  "value": "Salary",
+                  "disabled": true
+                }
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "69d2585808fbdd9dd8cb1938"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"amount\": 1500,\r\n  \"type\": \"income\",\r\n  \"category\": \"Rent\"\r\n//   \"date\": \"2026-04-02\",\r\n//   \"notes\": \"Weekly grocery shopping\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/transactions/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "transactions",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "69d2585808fbdd9dd8cb1938"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/transactions/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "transactions",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "69d2585808fbdd9dd8cb1938"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "get summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/dashboard/summary",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dashboard",
+                "summary"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "recent transactions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/dashboard/recent",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dashboard",
+                "recent"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    }
+  ]
+}
